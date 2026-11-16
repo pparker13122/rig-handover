@@ -1,8 +1,9 @@
 ---
 plan: morning-digest
-status: ready
+status: done
 owner: rook
 opened: 2026-10-29
+closed: 2026-11-16
 ---
 
 # Morning digest
@@ -77,3 +78,21 @@ page again with `LANE_MARKER` unset (the banner reads "no marker set") and uploa
 link. Move this plan to `docs/plans/done/` with its issue list.
 
 Done when: the preview link no longer shows the lane marker.
+
+## Issues
+
+| # | Issue | Blocked by | Worker | Closed |
+|---|-------|-----------|--------|--------|
+| 1 | Digest types: `src/digest/types.ts` | — | claude-code · fable-5.2 · default | 2026-11-15 |
+| 2 | Run log reader: `readNight` | #1 | claude-code · opus-5.5 · default | 2026-11-15 |
+| 3 | Digest page: `GET /digest/:night` | #1 | claude-code · haiku-5.5 · default | 2026-11-15 |
+| 4 | Digest JSON: `GET /api/digest/:night` | #1 | claude-code · haiku-5.5 · default | 2026-11-15 |
+| 5 | Board link: nights link to their digest | #1 | claude-code · haiku-5.5 · default | 2026-11-15 |
+| 6 | Route tests for the digest page and JSON | #1 | claude-code · haiku-5.5 · default | 2026-11-15 |
+| 7 | Preview for review | #2–#6 | claude-code · fable-5.2 · default | 2026-11-16 |
+| 8 | Clean up: take the marker off the preview | #7, review in | claude-code · fable-5.2 · default | 2026-11-16 |
+
+§ 1 became two issues (#1, #2): the types go in first so #3–#6 can start against them.
+#3–#6 started after #1 and were closed after #2 was merged.
+#7 was closed once when the link was sent, before the reviewer had looked, and reopened until the review was in.
+The preview link lost its marker on 2026-11-16, after the review (ADR 0003).
